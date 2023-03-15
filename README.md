@@ -1,4 +1,4 @@
-SpaceInvader:
+SpaceInvader:  
 Sound of collision,fire and a background music added.  
 Collision accomplished with the distance formula:  
 D = sqrt((x2-x1)**2 + (y2-y1)**2)  
