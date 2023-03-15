@@ -1,12 +1,15 @@
 import random
 import time
 import pygame as py
+
+
 class Retard:
     def __init__(self, papagal):
         self.papagal = papagal
 
     def get_papagal(self, info):
         return f"{info} etremo {self.papagal}"
+
 
 py.init()
 width, height = 400, 400
@@ -19,7 +22,7 @@ delta_x, delta_y = 0, 0
 snake_speed = 10
 clock = py.time.Clock()
 food_x, food_y = random.randint(
-    0, width)//10*10, random.randint(0, height)//10*10
+    0, width) // 10 * 10, random.randint(0, height) // 10 * 10
 body_list = [(x, y)]
 game_OVER = False
 font = py.font.SysFont('bahnschrift', bold=True, size=25)
@@ -40,17 +43,15 @@ def snake():
     if food_x == x and food_y == y:
         while (food_x, food_y) in body_list:
             food_x, food_y = random.randint(
-                0, width)//10*10, random.randint(0, height)//10*10
+                0, width) // 10 * 10, random.randint(0, height) // 10 * 10
         if len(body_list) % 3 == 0:
-            snake_speed +=2
+            snake_speed += 2
     else:
         del body_list[0]
-    
-    
 
     game_screen.fill((0, 0, 0))
-    score = font.render('Score: '+ str(len(body_list)), True,(255,255,0))
-    game_screen.blit(score, [0,0])
+    score = font.render('Score: ' + str(len(body_list)), True, (255, 255, 0))
+    game_screen.blit(score, [0, 0])
     [py.draw.rect(game_screen, (40, 40, 40), cur_rect, 1) for cur_rect in grid]
 
     py.draw.rect(game_screen, (255, 0, 0), [food_x, food_y, w, h])
@@ -63,16 +64,15 @@ while True:
     if game_OVER == True:
         game_screen.fill((0, 0, 0))
         gover_msg = font.render("GAME OVER!", True, (255, 255, 255))
-        game_screen.blit(gover_msg, dest = [width//3, height//3])
-        
-        game_screen.blit(font.render("Final score: "+str(len(body_list)), True, (255,255,0))
-            , dest = [width//3, height//3+30])
+        game_screen.blit(gover_msg, dest=[width // 3, height // 3])
+
+        game_screen.blit(font.render("Final score: " + str(len(body_list)), True, (255, 255, 0))
+                         , dest=[width // 3, height // 3 + 30])
 
         py.display.update()
         time.sleep(3)
         py.quit()
         quit()
-
 
     events = py.event.get()
     for ev in events:
