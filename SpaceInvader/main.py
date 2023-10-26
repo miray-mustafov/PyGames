@@ -7,8 +7,6 @@ import random
 py.init()
 screen = py.display.set_mode((800, 600))
 
-sokem = [1, '1we']
-
 # Title and Icon
 py.display.set_caption("Space Invaders")
 icon = py.image.load('images/spaceship.png')
