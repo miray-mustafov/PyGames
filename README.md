@@ -17,4 +17,3 @@ There is snake speed up functionality.
 
 Connect4:  
 ![img.png](zreadme-imgs/conn4.png)
->>>>>>> 155a7d840280ca68c278dd88aa8e8fbebe91a46e
